@@ -1,0 +1,12 @@
+/***
+ * Given the head of a LinkedList and two positions ‘p’ and ‘q’,
+ * reverse the LinkedList from position ‘p’ to ‘q’.
+ */
+
+class LinkedListNode {
+  constructor(value){
+    this.value = value;
+    this.next = null;
+  }
+}
+
