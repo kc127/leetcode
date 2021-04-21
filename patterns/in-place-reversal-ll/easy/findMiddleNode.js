@@ -5,6 +5,22 @@ class LinkedListNode {
   }
 }
 
+/* optimal solution: fast and slow pointers pattern */
+const findMiddleNode = (head) => {
+  if (head === null || head.next === null) {
+    return head;
+  }
+
+  let fast = head;
+  let slow = head;
+  while (fast && fast.next) {
+    fast = fast.next.next;
+    slow = slow.next;
+  }
+  return slow;
+}
+
+/* brute-force method: O(n) time complexity, O(1) space complexity */
 const findMiddleNode = (head) => {
   let count = 0;
   let curr = head;
@@ -12,9 +28,8 @@ const findMiddleNode = (head) => {
     curr = curr.next;
     count++;
   }
-  console.log(count);
+
   for (let i = 0; i < Math.floor(count/2); i++) {
-    console.log(head);
     head = head.next;
   }
 
@@ -30,4 +45,4 @@ a.next = b;
 b.next = c;
 c.next = d;
 
-console.log(findMiddleNode(a));
+findMiddleNode(a);
