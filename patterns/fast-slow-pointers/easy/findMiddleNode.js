@@ -5,7 +5,10 @@ class LinkedListNode {
   }
 }
 
-/* optimal solution: fast and slow pointer */
+/* optimal solution: fast and slow pointer
+ * O(n) time complexity
+ * O(1) space complexity for slow and fast variables
+ */
 const findMiddleNode = (head) => {
   if (head === null || head.next === null) {
     return head;
@@ -19,3 +22,4 @@ const findMiddleNode = (head) => {
   }
   return slow;
 }
+
