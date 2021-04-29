@@ -24,6 +24,7 @@
     return true;
   }
 
+/* O(n) */
 const isUnique2 = (str) => {
   if (str === '' || str.length > 128) {
     return false;
@@ -46,7 +47,7 @@ const isUnique2 = (str) => {
 
 
 
-/* b. optimal solution */
+/* b. optimal solution O(nlogn) */
 
 const isUnique3 = (str) => {
   if (str === '' || str.length > 128) {
@@ -70,5 +71,7 @@ console.log(isUnique2('ka!n9'));
 
 
 /** Hints
- *
+ * use hashmap (object) O(n)
+ * use bit vector
+ * use sorting and loop O(nlogn)
  */
