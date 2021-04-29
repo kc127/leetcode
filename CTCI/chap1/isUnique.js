@@ -43,10 +43,6 @@ const isUnique2 = (str) => {
   return true;
 }
 
-
-
-
-
 /* b. optimal solution O(nlogn) */
 
 const isUnique3 = (str) => {
