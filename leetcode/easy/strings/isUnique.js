@@ -6,7 +6,8 @@
 
 /* a. brute force O(n^2) */
   const isUnique = (str) => {
-    if (str === '') {
+    // assuming, string is ascii
+    if (str === '' || str.length > 128) {
       return false;
     }
     if (str.length === 1) {
@@ -24,13 +25,21 @@
   }
 
 const isUnique2 = (str) => {
-  if (str === '') {
+  if (str === '' || str.length > 128) {
     return false;
   }
   if (str.length === 1) {
     return true;
   }
-  let 
+  let char = {};
+  for (let i = 0; i < str.length; i++) {
+    let charValue = str[i].charCodeAt(0);
+    if(char[charValue]) {
+      return false;
+    }
+    char[charValue] = true;
+  }
+  return true;
 }
 
 
@@ -40,7 +49,7 @@ const isUnique2 = (str) => {
 /* b. optimal solution */
 
 const isUnique3 = (str) => {
-  if (str === '') {
+  if (str === '' || str.length > 128) {
     return false;
   }
   if (str.length === 1) {
@@ -56,7 +65,7 @@ const isUnique3 = (str) => {
   return true;
 }
 
-console.log(isUnique3('hutg9mnd!nk9'));
+console.log(isUnique2('ka!n9'));
 
 
 
