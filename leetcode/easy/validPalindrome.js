@@ -7,28 +7,21 @@
 /**
  * @param {string} s
  * @return {boolean}
+ *
+ * Soln: Two pointers method
+ * O(n) time complexity
+ * O(1) space complexity
+ *
  */
- var isPalindrome = function(s) {
-  let i = 0;
-  let j = s.length - 1;
-  while (i < j) {
-    while (i < j && !isAlphanumeric(s[i])) {
-      i++;
-    }
-    while (i < j && !isAlphanumeric(s[j])) {
-      j--
-    }
-    if (i < j && s[i].toLowerCase() !== s[j].toLowerCase()) {
-      return false;
-    }
-  }
-  return true;
-};
 
+var isPalindrome = (str) => {
+  let start = 0;
+  let end = str.length - 1;
+  while (start < end) {
+    let s = str.charCodeAt(start);
+    let e = str.charCodeAt(end);
 
-var isAlphanumeric = function(char) {
-  if (char.charCodeAt(0) >= 48 && char.charCodeAt(0) <= 57 || char.charCodeAt(0) >= 65 && char.charCodeAt(0) <= 90 || char.charCodeAt(0) >= 97 && char.charCodeAt(0) <= 122) {
-     return true;
   }
-  return false;
 }
+
+var
