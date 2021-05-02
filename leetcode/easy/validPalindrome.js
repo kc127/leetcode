@@ -20,8 +20,41 @@ var isPalindrome = (str) => {
   while (start < end) {
     let s = str.charCodeAt(start);
     let e = str.charCodeAt(end);
+    if (!isAlphanumeric(s)) {
+      start++;
+      continue;
+    }
+    if (!isAlphanumeric(e)) {
+      end--;
+      continue;
+    }
+    if (isLowerCase(s) !== isLowerCase(e)) {
+      return false;
+    }
+    start++;
+    end--;
+  }
+  return true;
+}
 
+var isAlphanumeric = (code) => {
+  // number 0 - 9
+  if (code >= 48 && code <= 57 ||
+      code >= 65 && code <= 90 ||
+      code >= 97 && code <= 122) {
+      return true
+  } else {
+      return false;
   }
 }
 
-var
+var isLowerCase = (code) => {
+  if (code >= 65 && code <= 90) {
+    code += 32;
+    return code;
+  } else {
+    return code;
+  }
+}
+
+console.log(isPalindrome("race a car"));
