@@ -48,10 +48,10 @@ var objMethods = {
   }
 
   dequeue: function () {
-    var temp = this._storage[this._start];
+    var propToDelete = this._storage[this._start];
     delete this._storage[this._start];
     this.size() && this._start++;
-    return temp;
+    return propToDelete;
   }
 
   size: function () {
@@ -59,4 +59,52 @@ var objMethods = {
   }
 }
 
+
+/* prototypal */
+
+var Queue = () => {
+  var someInstance  = Object.create(queueMethods);
+  someInstance._storage = {};
+  someInstance._start = 0;
+  someInstance._end = 0;
+
+  return someInstance;
+}
+
+var queueMethods = {};
+
+queueMethods.enqueue = (value) => {
+  this._storage[this._end++] = value;
+}
+
+queueMethods.dequeue = () => {
+  var propToDelete = this._storage[this._start];
+  delete this._storage[this._start];
+  this.size() && this._start++;
+  return propToDelete
+}
+
+/* pseudoclassical */
+var Queue = () => {
+  this._storage = {};
+  this._start = 0;
+  this._end = 0;
+}
+
+Queue.prototype.enqueue = {
+  this._storage[this._end++] = value;
+}
+
+Queue.prototype.dequeue = {
+  var propToDelete = this._storage[this._start];
+  delete this._storage[this._start];
+  this.size() && this._start++;
+  return propToDelete;
+}
+
+Queue.prototype.size = {
+  return this._end - this._start;
+}
+
+/* es6 */
 
