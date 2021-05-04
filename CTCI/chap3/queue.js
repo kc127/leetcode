@@ -108,3 +108,25 @@ Queue.prototype.size = {
 
 /* es6 */
 
+class Queue {
+  constructor(){
+    this._storage = {};
+    this._start = 0;
+    this._end = 0;
+  }
+
+  enqueue (value) {
+    this._storage[this._end++] = value;
+  }
+
+  dequeue() {
+    var propToDelete = this._storage[this._start];
+    delete this._storage[this._start];
+    this.size() && this._start++;
+    return propToDelete;
+  }
+
+  size() {
+    return this._end - this._start;
+  }
+}
