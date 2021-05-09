@@ -20,7 +20,7 @@
  * - traverse through the word
  * - increment a counter when you run into a capital letter
  */
-
+   // time complexity: O(n), space complexity: O(1)
   const detectCapitalUse = (word) => {
     let count = 0;
 
@@ -30,6 +30,11 @@
       }
     }
 
-    return count === word.length || count === 0 || (count === 1 && word[0] === word.toUpperCase());
+    return (count === word.length) || (count === 0) || (count === 1 && word[0] === word.toUpperCase());
   }
 
+
+  // elegant but same time complexity
+  const detectCapitalUse = (word) => {
+    return word === word.toUpperCase() || word === word[0] + word.substring(1).toLowerCase();
+  }
