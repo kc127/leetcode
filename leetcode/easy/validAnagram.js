@@ -5,14 +5,13 @@ var isAnagram = function(s, t) {
 
   let charCount = {};
   for (let char of s) {
-      console.log(char)
       if (!charCount[char]){
         charCount[char] = 1
       } else {
         charCount[char]++;
       }
   }
-  
+
   for (let c of t) {
       if (!charCount[c] || charCount[c] <= 0) {
           return false
