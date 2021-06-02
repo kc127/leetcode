@@ -29,7 +29,6 @@
           stack.push(char);
       } else if (char === ')' && stack.length !== 0 && stack[stack.length - 1] === '(') {
           stack.pop();
-          console.log(char);
       } else if (char === '}' && stack.length !== 0 && stack[stack.length - 1] === '{') {
           stack.pop();
       } else if (char === ']' && stack.length !== 0 && stack[stack.length - 1] === '[') {
