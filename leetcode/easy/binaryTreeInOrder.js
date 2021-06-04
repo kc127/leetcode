@@ -10,11 +10,13 @@
  *     this.left = (left===undefined ? null : left)
  *     this.right = (right===undefined ? null : right)
  * }
- */
-/**
+ *
  * @param {TreeNode} root
  * @return {number[]}
+ *
  */
+
+// recursive
  var inorderTraversal = function(root) {
   let output = [];
 
@@ -29,4 +31,31 @@
   }
 
   return recursive(root);
+};
+
+
+// iterative with stack
+var inorderTraversal = function(root) {
+  let output = [];
+  let stack = [];
+
+  if(root === null) {
+     return output;
+  }
+
+
+  while(true) {
+      if(root !== null) {
+        stack.push(root);
+        root = root.left;
+      } else {
+        if(stack.length === 0) {
+          break;
+        }
+        root = stack.pop();
+        output.push(root.val);
+        root = root.right;
+      }
+  }
+  return output;
 };
