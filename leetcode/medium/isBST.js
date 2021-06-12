@@ -39,8 +39,39 @@
         return true;
       }
 
+      if(root.val <= min || root.val > max) {
+        return false;
+      }
+
       return isBSTUtil(node.left, min, node.val) && isBTSUtil(node.right, node.val, max)
     }
 
     return isBSTUtil(root, min, max)
 };
+
+
+/** iterative */
+
+var isBSTIterative = (root) => {
+  if (root === null) {
+    return true;
+  }
+  let stack = [];
+  let prev = null;
+  while (true) {
+    if (root !== null) {
+      stack.push(root);
+      root = root.left;
+    } else {
+      if (stack.length === 0) {
+        break;
+      }
+      root = stack.pop();
+      if(prev !== null && prev >= root.val) {
+        return false;
+      }
+      prev = root.val;
+      root = root.right;
+    }
+  }
+}
