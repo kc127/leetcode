@@ -4,6 +4,8 @@
 Input: root = [3,1,4,null,2], k = 1
 Output: 1
 
+Time Complexity: O(n) in the worst case because n could be the rightmost leaf
+Space Complexity: O(n)
 **/
 
 var kthSmallestRecursive = (root, k) => {
@@ -42,3 +44,4 @@ var kthSmallestIterative = (root, k) => {
   }
   return output[k-1];
 }
+
