@@ -24,6 +24,8 @@ Output: [1]
  * @param {number} n
  * @return {ListNode}
  *
+ * Time Complexity: O(n) because we traverse the entire list once
+ * Space Complexity: O(1) because we only use constant extra space
  */
 
 var removeNthNodeFromEnd = (head, n) => {
