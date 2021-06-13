@@ -14,8 +14,32 @@ Example 3:
 Input: head = [1,2], n = 1
 Output: [1]
 
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ *
+ * @param {ListNode} head
+ * @param {number} n
+ * @return {ListNode}
+ *
  */
 
 var removeNthNodeFromEnd = (head, n) => {
-  
+  let dummy = new ListNode(0,head);
+  let slow = dummy;
+  let fast = dummy;
+
+  for (i = 0; i < n+1; i++) {
+    fast = fast.next;
+  }
+
+  while (fast !== null) {
+    slow = slow.next;
+    fast = fast.next;
+  }
+
+  slow = slow.next.next;
+  return dummy.next;
 }
