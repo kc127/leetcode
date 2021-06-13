@@ -14,6 +14,8 @@
  * to process left node, pass min and root.data as max
  * to process right node, pass root.data as min and max
  *
+ * Time Complexity: O(n) because we traverse the entire tree
+ * Space Complexity: O(1) because we use constant space to store variables
  */
 
 /**
