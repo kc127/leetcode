@@ -16,6 +16,7 @@ Now, a question naturally arises: which one should I use? Or more fundamentally,
 ***When to use DFS***
 
 *Tree*
+
 DFS is essentially pre-order tree traversal.
 
   - Traverse and find/create/modify/delete node. 
@@ -37,22 +38,22 @@ Trees are special graphs that have no cycle. We can still use DFS in graphs with
 - Detect cycles
 
 ***Common Tree Problems**
-Max Depth of a Tree
-Visible Tree Node 
-Valid BST
-Serializing and Deserializing BST 
-Lowest Common Ancestor 
+-Max Depth of a Tree
+-Visible Tree Node 
+-Valid BST
+-Serializing and Deserializing BST 
+-Lowest Common Ancestor 
 
 ***Common Graph Problems**
-Phone Book Problem 
-Generate Parentheses
-Combination Sum 
-Subsets
+-Phone Book Problem 
+-Generate Parentheses
+-Combination Sum 
+-Subsets
 
 ***Common Matrix Problems**
-Number of Islands
-Number of enclaves
-Surrounded Regions 
-Word Search 
-Smallest Rectangle 
-Enclosing Black Pixels 
+-Number of Islands
+-Number of enclaves
+-Surrounded Regions 
+-Word Search 
+-Smallest Rectangle 
+-Enclosing Black Pixels 
