@@ -13,5 +13,5 @@
 4. **Merge**: 
     - find the smallest/largest/specified element from N sorted arrays
     
-5. **Dynamic Programming**: 
+5. **Dynamic Programming** (if none of the above techniques work)
     - maximum subarray (kadane's algorithm)
