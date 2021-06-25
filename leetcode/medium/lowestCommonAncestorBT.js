@@ -21,6 +21,8 @@ pseudocode:
 
   if left or right is not null, return that node
 
+  runtime: O(n) in the worst case we will visit the entire tree
+  space: O(n) because the max space taken by the recursion stack is O(n)
 */
 
 function TreeNode(val) {
@@ -37,5 +39,23 @@ function TreeNode(val) {
 
 
 var lowestCommonAncestor = (root, p, q) => {
-  if (root === null)
+  if (root === null) {
+    return null;
+  }
+  if (root.val === p.val || root.val === q.val) {
+    return root;
+  }
+
+  let left = lowestCommonAncestor(root.left, p, q);
+  let right = lowestCommonAncestor(root.right, p, q);
+
+  if (left === null && right === null) {
+    return null;
+  }
+
+  if (left !== null && right !== null) {
+    return root;
+  }
+
+  return left !== null ? left : right;
 }
