@@ -48,3 +48,13 @@ var lowestCommonAncestorIterative = (root, p, q) => {
   }
   return root;
 }
+
+var lowestCommonAncestorRecursive = (root, p, q) => {
+  if (root.val < p.val && root.val < q.val) {
+    return lowestCommonAncestorRecursive(root.right, p, q);
+  } else if (root.val > p.val && root.val > q.val) {
+    return lowestCommonAncestorRecursive(root.left, p, q);
+  } else {
+    return root;
+  }
+}
