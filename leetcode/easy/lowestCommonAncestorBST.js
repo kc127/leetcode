@@ -16,7 +16,13 @@
 
   return root
 
-
+  brutefor recursive ?
+    if root is greater than p, q
+        run recursion with root.left, p, q
+    if root is less than p, q
+        run recursion with root.right, p, q
+    else
+      return root
 
  */
 
