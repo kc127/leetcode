@@ -20,16 +20,13 @@
  * @return {number}
  */
  var maxProfit = (prices) => {
-   let min = prices[0];
-   let profit = 0;
-   for (let i = 0; i < prices.length; i++) {
-     if (min > prices[i]) {
-       min = prices[i];
-     } else if (profit < prices[i] - min) {
-       profit = prices[i] - min
-     }
-   }
-   return profit;
+    let globalMin = prices[0];
+    let globalProfit = 0;
+    for (let i = 1; i < prices.length; i++) {
+      globalMin = Math.min(globalMin, prices[i]);
+      globalProfit = Math.max(globalProfit, prices[i] - globalMin);
+    }
+    return globalProfit;
  }
 
  console.log(maxProfit([7,1,5,3,6,4]));
