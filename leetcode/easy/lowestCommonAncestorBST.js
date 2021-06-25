@@ -24,6 +24,9 @@
     else
       return root
 
+runtime: O(N) in the worst case we might visit all nodes
+space: O(N) because the maximum amount of space utilized by recursion stack is N (since height of a skewed BST could be N)
+
  */
 
 function TreeNode(val) {
@@ -58,3 +61,4 @@ var lowestCommonAncestorRecursive = (root, p, q) => {
     return root;
   }
 }
+
