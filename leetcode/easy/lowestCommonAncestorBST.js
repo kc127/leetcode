@@ -26,3 +26,25 @@
 
  */
 
+function TreeNode(val) {
+  this.val = val;
+  this.left = this.right = null;
+}
+
+/**
+ * @param: {TreeNode} root
+ * @param: {TreeNode} p
+ * @param: {TreeNode} q
+ * @param: {TreeNode}
+ */
+
+var lowestCommonAncestorIterative = (root, p, q) => {
+  if (root.val < p.val && root.val < q.val) {
+    root = root.right;
+  } else if (root.val > p.val && root.val > q.val) {
+    root = root.left
+  } else {
+    break;
+  }
+  return root;
+}
