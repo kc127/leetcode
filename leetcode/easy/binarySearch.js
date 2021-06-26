@@ -23,7 +23,10 @@
  *
  * on the right, we ask, what power must we raise 2, to get 2^x, the answer is just x
  *
- * 
+ * log(2)n = x
+ *
+ * so that's it: the number of times we must divide n in half to get to 1 is log(2)n, so our time cose is O(log(n))
+ *
  */
 
 var binarySearch = (target, nums) => {
