@@ -51,4 +51,4 @@ var binarySearch = (target, nums) => {
   return false;
 }
 
-console.log(binarySearch(1, [1]));
+console.log(binarySearch(1, [1,2]));
