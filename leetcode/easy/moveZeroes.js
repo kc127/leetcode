@@ -39,14 +39,24 @@ function moveZeroes(nums) {
 
 /**
  * optimal
- * run time:
- * space:
+ * run time: O(n)
+ * space: O(1)
  */
 
 function moveZeroesOptimal (nums) {
-  let 
+  let fast = 0;
+  let slow = 0;
+  for (fast = 0; fast < nums.length; fast++) {
+    if (nums[fast] !== 0) {
+      let temp = nums[slow];
+      nums[slow] = nums[fast];
+      nums[fast] = temp;
+      slow++;
+    }
+  }
+  return nums;
 }
 
 let nums = [1, 0, 2, 0, 0, 7];
 
-console.log(moveZeroes(nums));
+console.log(moveZeroesOptimal(nums));
