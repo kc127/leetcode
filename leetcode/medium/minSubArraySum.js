@@ -13,6 +13,12 @@ Explanation: The subarray [4,3] has the minimal length under the problem constra
  * @return {number}
  */
 
+/**
+ *
+ * time complexity: O(n);
+ * space: O(1)
+ */
+
 var minSubArraySum = (target, nums) => {
   if (nums === null || nums.length === 0) {
     return 0;
