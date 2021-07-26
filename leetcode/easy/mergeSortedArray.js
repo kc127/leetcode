@@ -62,6 +62,7 @@ var mergeArrays2 = (nums1, m, nums2, n) => {
   return nums1;
 }
 
+// OPTIMAL SOLUTION
 // approach 3: three pointers (start from the end)
 /*
   initialize read pointer p1 to the m-1th position of nums1 array
@@ -79,6 +80,8 @@ var mergeArrays2 = (nums1, m, nums2, n) => {
   return nums1
 
 */
+// time: O(n+m);
+// space: O(1);
 var mergeArrays3 = (nums1, m, nums2, n) => {
   let p1 = m - 1;
   let p2 = n - 1;
