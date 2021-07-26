@@ -24,9 +24,42 @@ var mergeArrays1 = (nums1, m, nums2, n) => {
   return nums1;
 }
 
+// approach 2: three pointers (two read pointers, 1 write pointer)
+/*
+  Initialize nums1Copy to be a new array containing the first m values of nums1
+  Initialize read pointer p1 to the beginning of nums1Copy
+  Initialize read pointer p2 to the beginning of nums2
+  Initialize write pointer p to the beginning of nums1
+  While p is still within num1:
+    if nums1Copy[p1] exists and is less than or equal to nums2[p2]
+      write nums1Copy[p1] into nums[p] and increment p1 by 1
+    else
+      write nums2[p2] into nums[p] and increment p2 by 1
+    increment p by 1
+
+*/
+var mergeArrays2 = (nums1, m, nums2, n) => {
+  let nums1Copy = [...nums1];
+  let p1 = 0;
+  let p2 = 0;
+  let p = 0;
+
+  while (p < nums1.length) {
+    if (nums1Copy[p1] && nums1Copy[p1] <= nums2[p2]) {
+      nums1[p] = nums1Copy[p1];
+      p1++;
+    } else {
+      nums1[p] = nums2[p2];
+      p2++;
+    }
+    p++;
+  }
+  return nums1;
+}
+
 let nums1 = [1,2,3,0,0,0];
 let m = 3;
 let nums2 = [2,5,6];
 let n = 3;
 
-console.log(mergeArrays1(nums1, m, nums2, n));
+console.log(mergeArrays2(nums1, m, nums2, n));
