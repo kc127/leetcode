@@ -16,6 +16,8 @@ The result of the merge is [1,2,2,3,5,6] with the underlined elements coming fro
 
  */
 // approach 1: merge and sort
+// time: O(n+m)log(n+m)
+// space: O(m)
 var mergeArrays1 = (nums1, m, nums2, n) => {
   for (let i = 0; i < n; i++) {
     nums1[i+m] = nums2[i];
@@ -38,6 +40,9 @@ var mergeArrays1 = (nums1, m, nums2, n) => {
     increment p by 1
 
 */
+
+// time: O(n+m)
+// space: O(m) because of nums1Copy array
 var mergeArrays2 = (nums1, m, nums2, n) => {
   let nums1Copy = [...nums1];
   let p1 = 0;
@@ -57,9 +62,45 @@ var mergeArrays2 = (nums1, m, nums2, n) => {
   return nums1;
 }
 
+// approach 3: three pointers (start from the end)
+/*
+  initialize read pointer p1 to the m-1th position of nums1 array
+  initialize read pointer p2 to the n-1th position of nums2 array
+  initizlize write pointer p to the m+n-1th position of nums1 array
+  while p is still within nums1
+    if nums1[p1] is less than or equal to nums2[p2]
+      write nums1[p1] into nums1[p]
+      decrement p1 by 1
+    else
+      write nums2[p2] into nums1[p]
+      decrement p2 by 1
+    decrement p
+
+  return nums1
+
+*/
+var mergeArrays3 = (nums1, m, nums2, n) => {
+  let p1 = m - 1;
+  let p2 = n - 1;
+  let p = m + n - 1;
+
+  while (p >= 0) {
+    if (nums1[p1] <= nums2[p2]) {
+      nums1[p] = nums2[p2];
+      p2--
+    } else {
+      nums1[p] = nums1[p1];
+      p1--;
+    }
+    p--;
+  }
+  return nums1;
+}
+
 let nums1 = [1,2,3,0,0,0];
 let m = 3;
 let nums2 = [2,5,6];
 let n = 3;
 
-console.log(mergeArrays2(nums1, m, nums2, n));
+console.log(mergeArrays3(nums1, m, nums2, n));
+
