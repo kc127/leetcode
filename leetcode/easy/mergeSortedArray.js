@@ -88,22 +88,22 @@ var mergeArrays3 = (nums1, m, nums2, n) => {
   let p = m + n - 1;
 
   while (p >= 0) {
-    if (nums1[p1] <= nums2[p2]) {
-      nums1[p] = nums2[p2];
-      p2--
-    } else {
+    if (nums1[p1] && nums1[p1] >= nums2[p2]) {
       nums1[p] = nums1[p1];
-      p1--;
+      p1--
+    } else {
+      nums1[p] = nums2[p2];
+      p2--;
     }
     p--;
   }
   return nums1;
 }
 
-let nums1 = [1,2,3,0,0,0];
-let m = 3;
-let nums2 = [2,5,6];
-let n = 3;
+let nums1 = [0];
+let m = 0;
+let nums2 = [1];
+let n = 1;
 
 console.log(mergeArrays3(nums1, m, nums2, n));
 
