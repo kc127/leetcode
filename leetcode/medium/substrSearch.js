@@ -1,6 +1,5 @@
 /* KMP algorithm for pattern matching */
-abcde
-bc
+
 
 
 function strstr(s, x) {
