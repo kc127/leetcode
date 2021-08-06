@@ -37,4 +37,5 @@
      }
      curr = curr.next;
    }
+   return sentinel.next;
  }
