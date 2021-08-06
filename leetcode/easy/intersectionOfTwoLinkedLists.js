@@ -6,6 +6,39 @@ O: node
 C: O(n) time and O(1) space
 
 */
+
+/* approach 2: two pointers (the idea is that each pointer traverse the length of list 1 + list 2 + 1)
+   create two pointers pA and pB that point to headA and headB respectively
+   as long as pA and pB are not equal to each other
+      move pA to next node in headA
+      if pA hits null, set pA to point to headB
+
+      move pB to next node in headB
+      if pB hits null, set pA to point to headA
+
+      return pA
+
+  time: O(N + M) because we traverse both lists
+  space: O(1) because we don't use any data structure to store anything
+*/
+
+var getIntersectionNodeOptimal = (headA, headB) => {
+  if (headA === null || headB === null) {
+    return null;
+  }
+
+  let pA = headA;
+  let pB = headB;
+
+  while (pA !== pB) {
+    pA = pA === null ? headB : pA.next;
+    pB = pB === null ? headA : pB.next;
+  }
+
+  return pA;
+}
+
+
 /* appoach 1:
   traverse headA and store its node in a set
   traverse headB and if any of its node is present in headA's set, return that node
