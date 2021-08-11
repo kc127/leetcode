@@ -41,6 +41,9 @@ const paint = (image, row, col, newColor) => {
   queue.push([row, col]);
   visited.add([row, col]);
   let originalColor = image[row][col]
+  if (originalColor === newColor) {
+    return image;
+  }
   while (queue.length !== 0) {
     const node = queue.shift();
 
@@ -87,9 +90,12 @@ let image = [
   [0, 0, 1, 0],
   [0, 0, 1, 0]
 ]
-let row = 0
+let row = 1
 let col = 1
 let coord = [row, col]
 let newColor = 1
 
-console.log(paint(image, row, col, newColor))
+let image1 = [[0,0,0],[0,1,1]]
+
+
+console.log(paint(image1, row, col, newColor))
