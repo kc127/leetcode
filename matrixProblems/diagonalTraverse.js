@@ -10,3 +10,29 @@ Output: [[1,1,1,1],[1,2,2,2],[1,2,3,3]]
 
 
 */
+
+var diagonalSort = (matrix) => {
+  let m = matrix.length;
+  let n = matrix[0].length;
+
+  // diagonals from first row to last col
+  for (let k = 0; k < n; k++) {
+
+  }
+
+  // diagonals from first col to last row
+  for (let k = 1; k < m; k++) {
+
+  }
+
+  return matrix;
+}
+
+var sort = (matrix, i, j) => {
+  let m = matrix.length;
+  let n = matrix[0].length;
+
+  while (i < m && j < n) {
+    
+  }
+}
