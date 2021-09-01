@@ -34,5 +34,48 @@ Output: "0.2"
 
 
 var fractionToDecimal = (numerator, denominator) => {
-  
+  if (numerator === 0) {
+    return 0;
+  }
+
+  let isNegative = false;
+
+  if (numerator < 0 && denominator < 0) {
+    isNegative = false;
+  }
+
+  if (numerator < 0 || denominator < 0) {
+    isNegative = true;
+  }
+
+  let quotient = Math.floor (numerator/denominator);
+  let remainder = Math.floor (numerator % denominator);
+  let result = quotient;
+  if (remainder === 0) {
+    return isNegative ? "-" + result : result;
+  } else {
+    let hashMap = new Map();
+    result += ".";
+
+    while (remainder !== 0) {
+      if (hashMap.has(remainder)) {
+        let key = hashMap.get(remainder);
+        result = result.slice(0, key) + "(" + result.slice(key);
+        result += ")";
+        break;
+      } else {
+        hashMap.set(remainder, result.length);
+        remainder *= 10;
+        quotient = Math.floor(remainder/denominator);
+        remainder = Math.floor(remainder%denominator);
+        result += quotient;
+      }
+    }
+  }
+  return isNegative ? "-" + result : result;
 }
+
+
+
+
+console.log(fractionToDecimal(14,3)) // 4.(6)
