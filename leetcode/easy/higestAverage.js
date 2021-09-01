@@ -14,21 +14,35 @@ var highestAverage = (scores) => {
     return -1;
   }
 
-  let hightestAvg = 0;
+
   let overallScores = new Map();
+  let studentCount = new Map();
   for (let i = 0; i < scores.length; i++) {
     let student = scores[i][0];
     let score = scores[i][1];
 
     if (overallScores.has(student)) {
-      overallScores.set(student,overallScores.get(student) + score);
+      overallScores.set(student,overallScores.get(student) + Number(score));
+      studentCount.set(student, studentCount.get(student) + 1);
     } else {
-      overallScores.set(student, score);
+      overallScores.set(student, Number(score));
+      studentCount.set(student, 1);
     }
   }
-  console.log(overallScores)
+
+  let highestStudent = "";
+  let highestAvg = Number.MIN_SAFE_INTEGER;
+  overallScores.forEach((score, student) => {
+    let maxAvg = Math.floor(score/studentCount.get(student));
+    if (highestAvg < maxAvg) {
+      highestAvg = maxAvg;
+      highestStudent = student;
+    }
+  })
+
+  return [highestStudent, highestAvg];
 }
 
-let scores = [{"Bob","87"}, {"Mike", "35"},{"Bob", "52"}, {"Jason","35"}, {"Mike", "55"}, {"Jessica", "99"}];
+let scores = [["Bob","87"], ["Mike", "35"],["Bob", "52"], ["Jason","35"], ["Mike", "55"], ["Jessica", "99"]];
 
 console.log(highestAverage(scores));
