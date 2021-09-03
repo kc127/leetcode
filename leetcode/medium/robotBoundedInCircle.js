@@ -15,6 +15,12 @@ var circleExists = (commands) => {
     }
   }
   if (x === 0 && y === 0) {
-    return true
+    return true;
   }
+
+  if (dir !== 0) {
+    return true;
+  }
+
+  return false;
 }
