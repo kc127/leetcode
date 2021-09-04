@@ -34,25 +34,15 @@ Output: 91
  */
  var maximumUnits = function(boxTypes, truckSize) {
   boxTypes.sort((a,b) => b[1]-a[1]);
-  console.log(boxTypes)
+
   let maxUnits = 0;
-  let fit = 0;
-  for (let i = 0; i < boxTypes.length; i++) {
-      let numberOfBoxes = boxTypes[i][0];
-      let numberOfUnitsPerBox = boxTypes[i][1];
 
-      if (numberOfBoxes < truckSize) {
-          maxUnits += numberOfBoxes * numberOfUnitsPerBox
-          truckSize = truckSize - numberOfBoxes;
-
-      } else {
-          maxUnits += numberOfUnitsPerBox * truckSize;
-          truckSize = truckSize - truckSize;
-      }
-      if (truckSize === 0) {
-          break;
-      }
-      console.log(maxUnits,truckSize)
+  for (let boxType of boxTypes) {
+    if(boxType[0] && truckSize) {
+      maxUnits += boxType[1];
+      boxType[0]--;
+      truckSize--;
+    }
   }
   return maxUnits;
 };
