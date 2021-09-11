@@ -1,3 +1,4 @@
+/* Optimal : Hashmap (Object) O(n) time */
 var isAnagram = function(s, t) {
   if (s.length !== t.length) {
       return false;
@@ -22,4 +23,17 @@ var isAnagram = function(s, t) {
   return true;
 };
 
-console.log(isAnagram('cat','rat'));
+
+/* Brute force: Sorting O(nlogn) */
+var isAnagramBruteForce = (s, t) => {
+  if (s.length !== t.length) {
+    return false;
+  }
+
+  var sSorted = s.split("").sort();
+  var tSorted = t.split("").sort();
+
+  return JSON.stringify(sSorted) === JSON.stringify(tSorted);
+}
+
+console.log(isAnagramBruteForce('rat','catt'));
