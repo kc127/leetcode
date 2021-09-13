@@ -4,6 +4,8 @@ O: string
 C: optimal solution
 E: palindrome of even and odd length
 
+runtime: O(n^2)
+
 pseudocode:
   iterate over input string
     at every character
@@ -20,7 +22,7 @@ var longestPalindrome = (s) => {
   for (let i = 0; i < s.length; i++) {
     let oddPal = findPalindrome(i-1, i+1, s);
     let evenPal = findPalindrome(i, i+1, s);
-  
+
     longest = (oddPal.length > evenPal.length) ? (oddPal.length > longest.length ? oddPal : longest) : (evenPal.length > longest.length ? evenPal : longest);
   }
   return longest;
