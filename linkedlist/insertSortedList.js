@@ -12,3 +12,24 @@ var insert = (head, target) => {
   }
   return head;
 }
+
+
+var insertIterative = (head, target) => {
+  if (!head) {
+    return new ListNode(target);
+  }
+  if (target < head.value) {
+    return new ListNode(target, head);
+  }
+  let node = head;
+  while (node) {
+    if (node.next && target <= node.next.value) {
+
+    } else {
+      node = n
+    }
+  }
+}
+t = 6
+1  4  8
+   n
