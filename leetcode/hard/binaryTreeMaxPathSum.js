@@ -7,3 +7,18 @@ Given the root of a binary tree, return the maximum path sum of any path.
 
 */
 
+var binaryMaxPathSum = (root) => {
+  let maxSoFar = root.value;
+
+  let maxGain = (node) => {
+    if(!node) return 0;
+    let leftMax = Math.max(0, maxGain(node.left));
+    let rightMax = Math.max(0, maxGain(node.right));
+
+    maxSoFar = Math.max(leftMax + rightMax + node.value, maxSoFar);
+
+    return Math.max(leftMax, rightMax) + node.value;
+  }
+  maxGain(root);
+  return maxSoFar;
+}
