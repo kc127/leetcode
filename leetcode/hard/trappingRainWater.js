@@ -7,6 +7,40 @@
  * array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped.
  */
 
+
+/* optimal with O(n) runtime and O(n) space with 2 pass */
+
+var trapOptimal = (heights) => {
+  let n = heights.length;
+  let minHeights = Array(n).fill(0);
+
+  let leftMax = 0
+  for (let i = 0; i < n; i++ ) {
+      minHeights[i] = leftMax;
+      leftMax = Math.max(leftMax, heights[i]);
+  }
+
+  let rightMax = 0;
+  let waterArea = 0;
+  for (let i = n-1; i >=0; i--) {
+    let currLeftMax = minHeights[i];
+    minHeights[i] = Math.min(currLeftMax, rightMax);
+    rightMax = Math.max(rightMax, heights[i]);
+    if (minHeights[i] > heights[i]) {
+      waterArea += minHeights[i] - heights[i];
+    }
+  }
+  return waterArea;
+}
+
+
+
+
+
+
+
+
+ /* brute force with O(n) runtime and O(n) space with 3 passes */
 var trap = (heights) => {
   // edge case
   if (heights === null || heights.length === 0) {
