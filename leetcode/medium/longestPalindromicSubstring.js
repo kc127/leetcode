@@ -15,7 +15,32 @@ pseudocode:
   return longest palindrome
 
 */
+//Optimal O(n) runtime with O(1) space
+var longestPalindrome = function(s) {
+  let longest = [0,1];
 
+  for (let i = 0; i < s.length; i++) {
+      let oddLen = checkPalindrome(i-1, i+1, s);
+      let evenLen = checkPalindrome(i, i+1,s);
+
+      longest = (oddLen[1] - oddLen[0] > evenLen[1]-evenLen[0]) ?
+                                   (oddLen[1] - oddLen[0] > longest[1] - longest[0] ? oddLen : longest) :
+                                   (evenLen[1]-evenLen[0] > longest[1] - longest[0] ? evenLen: longest);
+  }
+
+  return s.slice(longest[0], longest[1]);
+};
+
+var checkPalindrome = (i, j, s) => {
+  while (i >= 0 && j < s.length && s[i] === s[j]) {
+      i--;
+      j++;
+  }
+  return [i+1, j];
+}
+
+
+// Optimal O(n) runtime with O(n) space 
 var longestPalindrome = (s) => {
   let longest = "";
 
