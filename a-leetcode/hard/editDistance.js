@@ -14,12 +14,12 @@ construct comparison table
   fill 1st row with i = 0 to i length of word1
   fill 1st col with j = 0 to j length of word2
 
-traverse our comparison table
+2. traverse our comparison table
    if characters are equal then add diagonal element at curr position
    else
       curr position = min of values at top, left, diagonal
 
-return the value at the intersection of last row and last col
+3. return the value at the intersection of last row and last col
 */
 
 var editDistance = (word1, word2) => {

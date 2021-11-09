@@ -10,6 +10,13 @@
  }
 
 /**
+ time: O(n) because we visit all nodes
+ space: O(n) for iterative because in a complete and full binary tree, last level has the max number of nodes
+             (n+1)/2 ~ n
+        O(h) for recursive in a complete and full binary tree, because our stack at max has the height of the tree 
+ */
+
+/**
  * @param {TreeNode} root
  * @return {number[][]}
  */
