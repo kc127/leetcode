@@ -34,11 +34,35 @@ root.right = root.left, leftTail.left = null;
           root.left = null;
 
       return rightTail if not null or
-            leftTail if rightTail is null
+      leftTail if rightTail is null
 
 
-
-
-
+I: root of the tree
+O: void
 */
+
+var flatten = (root) => {
+  return flattenTree(root);
+}
+
+var flattenTree = (node) => {
+  if (!root) {  // 1. when root is null
+    return null;
+  }
+
+  if (!root.left && !root.right) {  // 2. when root is a leaf node
+    return root;
+  }
+
+  let leftTail = flattenTree(node.left);
+  let rightTail = flattenTree(node.right);
+
+  if (leftTail) {
+    leftTail.right = node.right;
+    node.right = node.left;
+    node.left = null;
+  }
+
+  return !rightTail ? leftTail : rightTail;
+}
 
