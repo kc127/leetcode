@@ -45,3 +45,7 @@ function justify(input, k) {
 let input = ["the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"]
 let k = 16
 console.log(justify(input, k));
+
+["the  quick brown", // (2 spaces, 1 space)
+"fox  jumps  over", // (2 spaces, 2 spaces)
+"the   lazy   dog"]  // (3 spaces, 3 spaces)
