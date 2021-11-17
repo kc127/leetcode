@@ -36,5 +36,14 @@ Ex.
 [1, 3, 10, 2, 3, 4] returns [1, 3, 10]
 In this example, the two monotonically increasing subarrays are [1, 3, 10] and [2, 3, 4] but [1, 3, 10] has a larger sum
 
+high level approach
+    generate all subarrays O(n^2)
+    if subarray is monotonic
+       compute sum, store in a map with sum as key, subarray as value
+    return the subarray with max key
 */
 
+function maximumMonotonic(nums) {
+  let subarraySum = {};
+  
+}
