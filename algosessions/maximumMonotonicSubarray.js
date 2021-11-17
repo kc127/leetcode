@@ -1,3 +1,41 @@
+// optimal with o(n) time;
+
+function monotonic (nums) {
+
+  let currSum = nums[0];
+  let globalSum = nums[0];
+  let start = 0;
+  let end = 0;
+  let map = {};
+  map[globalSum] = [nums[0]];
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i] >= nums[i-1]) {
+      if (nums[i] + currSum < nums[i]) {
+        currSum = nums[i];
+        start = i;
+      } else {
+        currSum = nums[i] + currSum;
+      }
+      if (globalSum < currSum) {
+        end = i;
+        globalSum = currSum;
+      }
+      map[globalSum] = nums.slice(start, end + 1);
+    } else {
+      start = i;
+      currSum = nums[i];
+      globalSum = nums[i]
+    }
+  }
+  return Object.keys(map).reduce((a,b) => parseInt(a) > parseInt(b) ? map[a] : map[b]);
+}
+
+console.log(monotonic([1, 3, 10, 2, 3, 4])) // returns [1,3,10];
+
+
+
+// NON-OPTIMAL really bad runtime
+
 // [1, 3, 10, 2, 3, 4] returns [1, 3, 10]
 
 // [1,3,10] return
