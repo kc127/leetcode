@@ -43,7 +43,44 @@ high level approach
     return the subarray with max key
 */
 
+function monotonic (nums) {
+  let currSum = nums[0];
+  let globalSum = nums[0];
+  let start = 0;
+  let end = 0;
+  let maxSubarray = {};
+  maxSubarray[globalSum] = [nums[0]];
 
+  for (let i = 1; i < nums.length; i++) {
+     if (nums[i] >= nums[i-1]) {
+         if (currSum + nums[i] < nums[i]) {
+             currSum = nums[i];
+             start = i;
+         } else {
+             currSum = currSum + nums[i];
+         }
+
+
+         if(globalSum < currSum) {
+            end = i;
+            globalSum = currSum;
+            maxSubarray[globalSum] = nums.slice(start, end + 1);
+         }
+     } else {
+        start = i;
+        end = i;
+        currSum = nums[i];
+        globalSum = nums[i];
+     }
+  }
+
+  return Object.keys(maxSubarray).reduce((a,b) => parseInt(a) > parseInt(b) ? maxSubarray[a] : maxSubarray[b]);
+}
+
+console.log(monotonic([1,3,10,2,3,4]));
+
+
+/*--------------------------------------*/
 
 function monotonic (nums) {
 
@@ -77,5 +114,8 @@ function monotonic (nums) {
 
 console.log(monotonic([1, 3, 10, 2, 3, 4])) // returns [1,3,10];
 
+/*
+3. shortest maximum subarray sum
 
 
+*/
