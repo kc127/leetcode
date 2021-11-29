@@ -1,4 +1,4 @@
-/*
+/*jjj
 I: string
 O: string
 C: optimal solution
@@ -40,7 +40,7 @@ var checkPalindrome = (i, j, s) => {
 }
 
 
-// Optimal O(n) runtime with O(n) space 
+// Optimal O(n) runtime with O(n) space
 var longestPalindrome = (s) => {
   let longest = "";
 
