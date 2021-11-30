@@ -1,4 +1,4 @@
-/*jjj
+/*
 I: string
 O: string
 C: optimal solution
