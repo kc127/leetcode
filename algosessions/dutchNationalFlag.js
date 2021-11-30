@@ -64,6 +64,22 @@ function dnf(input) {
   return input;
 }
 
+// 3.
+function dnf(input) {
+  let low = 0;
+  let curr = 0;
+  while (curr <= input.length - 1) {
+    if (input[curr] === 0) {
+      [input[low],input[curr]] = [input[curr], input[low]];
+      low++;
+      curr++;
+    } else {
+      curr++;
+    }
+  }
+  return input;
+}
+
 
 // 4. recursive solution
 function dnf(input) {
