@@ -11,6 +11,38 @@ Examples:
 3. Two elements problem (only 0s and 1s)
 4. Recursive solution (create helper with zeroIndex, currIndex and twoIndex)
 */
+
+// 1. two pass solution
+function dnf(input) {
+  let zeroes = 0;
+  let ones = 0;
+  let twos = 0;
+
+  for (let num of input) {
+    if (num === 0) {
+      zeroes++;
+    } else  if (num === 1) {
+      ones++;
+    } else {
+      twos++;
+    }
+  }
+
+  for (let i = 0; i < input.length; i++) {
+    if (zeroes) {
+      input[i] = 0;
+      zeroes--;
+    } else if (ones) {
+      input[i] = 1;
+      ones--;
+    } else {
+      input[i] = 2;
+      twos--;
+    }
+  }
+  return input;
+}
+
 // 2. one pass solution
 function dnf(input) {
   let low = 0;
