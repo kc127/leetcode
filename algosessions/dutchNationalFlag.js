@@ -13,6 +13,29 @@ Examples:
 */
 
 // 1. two pass solution
+
+function sort(arr) {
+  const counts = {};
+
+  arr.forEach(val => {
+    counts[val] = (counts[val] || 0) + 1;
+  }
+
+
+  const result = [];
+  [0, 1, 2].forEach(i => {
+    while (counts[i] > 0) {
+      counts[i]--;
+      result.push(i);
+    }
+
+    // result += [i] * counts[i]; // ['foo'] * 2 -> ['foo', 'foo']
+  });
+
+
+
+  return result;
+}
 function dnf(input) {
   let zeroes = 0;
   let ones = 0;
