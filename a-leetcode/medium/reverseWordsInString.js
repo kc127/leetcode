@@ -9,27 +9,53 @@ Output: "blue is sky the"
   reverse each word in the string
  */
 
-var reverseWords = (str) => {
-  let words = removeSpaces(str)length;
-  reverseStr(words);
-  reverseEachWord(words, 0, words.length - 1);
-  return words.join(' ');
+var reverseWords = function(s) {
+    let words = removeSpaces(s);
+    reverseString(words, 0, words.length - 1);
+    reverseEachWord(words);
+    return words.join("")
+};
+
+var removeSpaces = function(s) {
+    s = s.trim();
+    let left = 0;
+    let right = s.length - 1;
+    let words = [];
+    while (left <= right) {
+        let c = s.charAt(left);
+        if (c !== ' ') {
+            words.push(c);
+        } else if (words[words.length - 1] !== ' ') {
+            words.push(c)
+        }
+        left++;
+    }
+    return words;
 }
 
-var reverseStr = (words, left, right) => {
-  while (left <= right) {
-    [words[left], words[right]] = [words[right], words[left]];
-    left++;
-    right--;
-  }
+var reverseString = function (strArr, left, right) {
+    while (left <= right) {
+        [strArr[left], strArr[right]] = [strArr[right], strArr[left]];
+        left++;
+        right--;
+    }
 }
 
-var reverseEachWord = (words) => {
-  let left = 0, let right = 0, let n = words.length;
-  while (left < 0) {
-    while (right < 0 && words[right] !== ' ') right++;
-    reverseStr(words, start, right - 1);
-    start = right + 1;
-    right++;
-  }
+var reverseEachWord = function (strArr) {
+    let start = 0, end = 0, n = strArr.length;
+    while (start < n) {
+        while (end < n && strArr[end] !== ' ') end++;
+        reverseString (strArr, start, end - 1);
+        start = end + 1;
+        end++;
+    }
 }
+
+/*
+  remove spaces
+  convert string to array
+  reverse the whole string
+  reverse each word in the string
+  return array convertd to string
+
+*/
