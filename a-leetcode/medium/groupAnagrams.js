@@ -20,12 +20,7 @@ var groupAnagrams = (strs) => {
     }
   }
 
-  let anagrams = [];
-
-  for (let anagram in table) {
-    anagrams.push(table[anagram]);
-  }
-  return anagrams;
+  return Object.values(table);
 }
 
 let strs = ["eat","tea","tan","ate","nat","bat"] // soln: [["bat"],["nat","tan"],["ate","eat","tea"]]
