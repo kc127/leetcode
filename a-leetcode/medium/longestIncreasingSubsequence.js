@@ -54,18 +54,8 @@ const LIS = (input) => {
   for (let i = 1; i < input.length; i++) {
    for (let p = 0; p < i; p++) {
     if (input[p] < input[i] && subseq[p].length + 1 >= subseq[i].length) {
-
-
       // subseq[i] = subseq[p].concat([input[i]]);
-
       subseq[i] = [...subseq[p], ...[input[i]]];
-      //            [...subseq[p], ...input[i]]
-      // subseq[p] = [1,2,3]
-      // input[i] = [4]
-
-      // subseq[i] = [1,2,3,4]
-
-
       if (subseq[maxIdx].length < subseq[i].length) {
         maxIdx = i
       }

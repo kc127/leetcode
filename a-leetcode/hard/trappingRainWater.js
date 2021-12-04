@@ -10,6 +10,35 @@
 
 /* optimal with O(n) runtime and O(n) space with 2 pass */
 
+var trap = function(height) {
+  let n = height.length;
+  let leftWalls = Array(n).fill(0);
+  let rightWalls = Array(n).fill(0);
+
+  let leftMax = 0;
+  for (let i = 0; i < n; i++) {
+      leftWalls[i]  = leftMax;
+      leftMax = Math.max(height[i], leftMax);
+  }
+
+  let rightMax = 0;
+  for (let i = n-1; i >= 0; i--) {
+      rightWalls[i] = rightMax;
+      rightMax = Math.max(height[i], rightMax);
+  }
+
+  let totalWater = 0;
+  for (let i = 0; i < n; i++) {
+      let lowerWall = Math.min(leftWalls[i], rightWalls[i]);
+      if (lowerWall > height[i]) {
+          totalWater += Math.min(leftWalls[i], rightWalls[i]) - height[i];
+      }
+  }
+
+  return totalWater;
+};
+
+
 var trapOptimal = (heights) => {
   let n = heights.length;
   let minHeights = Array(n).fill(0);
