@@ -13,7 +13,7 @@
  time: O(n) because we visit all nodes
  space: O(n) for iterative because in a complete and full binary tree, last level has the max number of nodes
              (n+1)/2 ~ n
-        O(h) for recursive in a complete and full binary tree, because our stack at max has the height of the tree 
+        O(h) for recursive in a complete and full binary tree, because our stack at max has the height of the tree
  */
 
 /**
@@ -51,3 +51,26 @@ var myTree = new TreeNode(1);
 myTree.left = new TreeNode(2);
 myTree.right = new TreeNode(3);
 console.log(levelOrder(myTree));
+
+// 2nd approach with recursion without for loop 
+var levelOrder = function(root) {
+    let levels = [];
+
+    let helper = (node, level) => {
+        if (!node) {
+            return;
+        }
+        if (levels.length === level) {
+            levels.push([]);
+        }
+        levels[level].push(node.val);
+        if (node.left) {
+            helper(node.left, level+1);
+        }
+        if (node.right) {
+            helper(node.right, level+1);
+        }
+    }
+    helper(root, 0);
+    return levels;
+};
