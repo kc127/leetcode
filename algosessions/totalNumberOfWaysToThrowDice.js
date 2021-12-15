@@ -71,11 +71,7 @@ function throwDice(numDice, faces, total) {
     return new Array(total + 1).fill(0);
   });
   // fill row of 1 die up to either faces or total
-  for (
-    let waysToTotal = 1;
-    waysToTotal <= Math.min(faces, total);
-    waysToTotal++
-  ) {
+  for ( let waysToTotal = 1; waysToTotal <= Math.min(faces, total); waysToTotal++) {
     table[1][waysToTotal] = 1;
   }
   // for each additional die
