@@ -27,10 +27,26 @@ Input:
   [2, 80, 1] 12
   [3, 90, 0]
   [3, 102, 1]
-
 ]
 
+  p1 = 71 - 68 = 3
+  [68,71]
+startTime for p1 68
+dropTime for p1  71
 
+p2 = 10
+[70,80]
+startTime for p2 70
+dropTime for p2  80
+
+[90,102]
+p3 = 12
+startTime for p3 90
+dropTime for p3 102
+
+[68,71],[70,80],[90,102]
+[68,80],[90,102]
+  12       12
 [
   [1, 68, 0]
   [2, 80, 0]
