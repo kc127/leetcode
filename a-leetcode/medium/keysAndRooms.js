@@ -16,7 +16,29 @@ Since we were able to visit every room, we return true.
 
 */
 /* DFS */
-var canVisitAllRooms = (rooms) => {
+/**
+ * @param {number[][]} rooms
+ * @return {boolean}
+ */
+ var canVisitAllRooms = function(rooms) {
   let stack = [];
-  let 
-}
+  let seenSet = new Set();
+
+  stack.push(0);
+  seenSet.add(0);
+
+  while (stack.length !== 0) {
+      let currentRoom = stack.pop();
+      for (let i = 0; i < rooms[currentRoom].length; i++) {
+          let roomUnlocked = rooms[currentRoom][i];
+          if (seenSet.has(roomUnlocked) !== true) {
+              seenSet.add(roomUnlocked);
+              stack.push(roomUnlocked);
+          }
+          if(rooms.length === seenSet.size) {
+              return true;
+          }
+      }
+  }
+  return false;
+};
