@@ -88,29 +88,27 @@ abbbba
 
 */
 
-// function lps(input) {
-//     let longest = ""
-//     for (let i = 0; i < input.length; i++) {
-//         let odd = lpsHelper(input, i-1, i+1) // aba
-//         let even = lpsHelper(input, i, i+1)
-//         let result = odd.length > even.length ? odd : even;
-//         longest = result.length > longest.length ? result : longest;
-//     }
-//     return longest
-// }
+function lps(input) {
+    let longest = ""
+    for (let i = 0; i < input.length; i++) {
+        let odd = lpsHelper(input, i-1, i+1) // aba
+        let even = lpsHelper(input, i, i+1)
+        let result = odd.length > even.length ? odd : even;
+        longest = result.length > longest.length ? result : longest;
+    }
+    return longest
+}
 
-// function lpsHelper(input, i, j) {
-
-//   while (i >= 0 && j < input.length) {
-//     if (input[i] !== input[j]) {
-//       break
-//     }
-//     i--
-//     j++
-//   }
-
-//   return input.slice(i+1, j)
-// }
+function lpsHelper(input, i, j) {
+  while (i >= 0 && j < input.length) {
+    if (input[i] !== input[j]) {
+      break
+    }
+    i--
+    j++
+  }
+  return input.slice(i+1, j)
+}
 
 // console.log(lps("abccba"),"abccba");
 // console.log(lps("0p0"),"0p0");
