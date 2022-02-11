@@ -1,3 +1,5 @@
+
+```
 /*
 Decompress a run-length encoded array of bytes
  given compressed version of data, decompress the input and output that version
@@ -66,3 +68,5 @@ function decompress(input) {
   }
   return result;
 }
+
+```
