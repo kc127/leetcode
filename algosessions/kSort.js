@@ -55,7 +55,7 @@ function kSort(input, k) {
 
   for (let i = 0; i < input.length - 1 ; i++) {
 
-     // [8, 9, 10, 12, 11] k=2
+     // [9, 8, 7, 12, 11] k=2
      // i = [0, 3]
 
      let min_i = i;
