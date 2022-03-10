@@ -24,11 +24,6 @@ dict[(1,2)
 dict[1].push(2)
 
 
-for row of rows
-  if row in usedRows continue
-  for col of cols
-    if col in usedCols continue
-
 
 
 placeQueen(0, n, [])
