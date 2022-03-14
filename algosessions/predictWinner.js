@@ -1,4 +1,4 @@
-Drawing Mode
+
 1
 /*
 2
