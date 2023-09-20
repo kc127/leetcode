@@ -57,7 +57,7 @@ var sortArray = (nums) => {
   let right = [];
 
   // partition the array based on the pivot
-  for (let i = 0; i < nums.length; i++) {
+  for (let i = 1; i < nums.length; i++) {
     if (nums[i] > pivot) {
       right.push(nums[i])
     } else {
